@@ -35,9 +35,66 @@ function App() {
 
   return (
     <>
+      <h1>Crea un nuovo post</h1>
 
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          chiamataAxios();
+        }}
+      >
+        <div>
+          <label>Autore</label>
+          <input
+            type="text"
+            name="author"
+            value={formData.author}
+            onChange={handleFormData}
+            placeholder="Inserisci autore"
+          />
+        </div>
+
+
+        <div>
+          <label>Titolo</label>
+          <input
+            type="text"
+            name="title"
+            value={formData.title}
+            onChange={handleFormData}
+            placeholder="Inserisci titolo"
+          />
+        </div>
+
+        <div>
+          <label>Testo del post</label>
+          <textarea
+            name="body"
+            value={formData.body}
+            onChange={handleFormData}
+            placeholder="Scrivi il contenuto del post"
+          ></textarea>
+        </div>
+
+
+        <div>
+          <input
+            type="checkbox"
+            name="public"
+            checked={formData.public}
+            onChange={handleFormData}
+          />
+          <label>Pubblico</label>
+        </div>
+
+
+        <button type="submit">Invia Post</button>
+
+      </form>
     </>
-  )
+  );
+
+
 
 }
 export default App
